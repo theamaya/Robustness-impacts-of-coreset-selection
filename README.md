@@ -54,7 +54,6 @@ mkdir -p data
 #### 1. Cmnist
 The CMNIST dataset can be downloaded from Google Drive:
 
-1. **Download from Google Drive**:
    - Download the dataset from [CMNIST Google Drive Link](https://drive.google.com/file/d/11E2l_aifV4C6RfA86K7TJBjjz63YM5db/view?usp=sharing)
    - Extract the downloaded `cmnist.zip` file:
    ```bash
@@ -79,16 +78,6 @@ The CMNIST dataset can be downloaded from Google Drive:
            └── 1/
    ```
 
-2. **Using the Download Script**:
-   ```bash
-   # Install the required packages
-   pip install -r requirements.txt
-   
-   # Download the dataset
-   python scripts/download_cmnist.py
-   ```
-
-Both methods will result in the same dataset structure. Choose whichever method is more convenient for you.
 
 #### 2. waterbirds
 Follow - https://github.com/kohpangwei/group_DRO/tree/master to generate the waterbirds dataset
@@ -110,7 +99,7 @@ We follow https://github.com/yvsriram/FACTS to set up the dataset. Download the 
 Follow https://github.com/izmailovpavel/spurious_feature_learning/tree/main to setup the dataset
 
 #### 8. CelebAhair
-Follow https://github.com/kohpangwei/group_DRO#celeba to download the dataset. Then, to use the hair color as the target attribute, we have provided the metadata file - 
+Follow https://github.com/kohpangwei/group_DRO#celeba to download the dataset. Then, to use the hair color as the target attribute, we have provided the metadata file at ./deepcore/datasets/metadata.csv
 
 ### Label Preparation
 
