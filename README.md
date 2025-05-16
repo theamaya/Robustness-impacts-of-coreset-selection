@@ -98,7 +98,6 @@ Follow https://github.com/izmailovpavel/spurious_feature_learning/tree/main to s
 
 #### 6. Nico_95_spurious
 We follow https://github.com/yvsriram/FACTS to set up the dataset. Download the NICO++ dataset as specified by them into './Data/NICO'
-data_path= './Data/NICO'
 
 #### 7. MultiNLI
 Follow https://github.com/izmailovpavel/spurious_feature_learning/tree/main to setup the dataset
@@ -175,6 +174,10 @@ python scripts/run_cmnist_train.py
 ```
 
 The results will be saved in the `results` directory with appropriate naming conventions for each dataset and selection method.
+
+## Acknowledgements
+
+This codebase is based on [DeepCore](https://github.com/PatrickZH/DeepCore), a comprehensive library for coreset selection in deep learning. We extend their work to study the robustness impacts of coreset selection methods on various datasets with spurious correlations and distribution shifts.
 
 
 
