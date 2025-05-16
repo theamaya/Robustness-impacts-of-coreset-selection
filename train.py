@@ -845,44 +845,16 @@ def main():
         
         args.channel, args.im_size, args.num_classes, args.class_names = channel, im_size, num_classes, class_names
 
-        class_labels= torch.load(f'/n/fs/dk-diffusion/repos/DeepCore/data/{args.dataset}_train_labels.pt')
-        context_labels= torch.load(f'/n/fs/dk-diffusion/repos/DeepCore/data/{args.dataset}_train_groups.pt')
+        class_labels= torch.load(f'./data/{args.dataset}_train_labels.pt')
+        context_labels= torch.load(f'./data/{args.dataset}_train_groups.pt')
 
         torch.random.manual_seed(args.seed)
         print(checkpoint_name)
         print(vars(args))
-        wandb.init(
-        # set the wandb project where this run will be logged
-        project="Bias_in_selection-training-classequal(imagenet)",
-        # track hyperparameters and run metadata
-        config= vars(args),
-        name= checkpoint_name)
 
         ###########
         subset = get_subset(args.subset_path, args.score_path, args.selection, args.fraction, args.policy, args.class_balance, args.class_equal, class_labels, context_labels, args.drop_percent)
         ###########
-
-        print("Data selection complete")
-
-        # # Augmentation
-        if args.dataset == "CIFAR10" or args.dataset == "CIFAR100":
-            dst_train.transform = transforms.Compose(
-                [transforms.RandomCrop(args.im_size, padding=4, padding_mode="reflect"),
-                 transforms.RandomHorizontalFlip(), dst_train.transform])
-        elif args.dataset == "ImageNet":
-            dst_train.transform = transforms.Compose([
-                transforms.RandomResizedCrop(224),
-                transforms.RandomHorizontalFlip(),
-                transforms.ToTensor(),
-                transforms.Normalize(mean, std)
-            ])
-
-        # # Handle weighted subset
-        # if_weighted = "weights" in subset.keys()
-        # if if_weighted:
-        #     dst_subset = WeightedSubset(dst_train, subset["indices"], subset["weights"])
-        # else:
-        #     dst_subset = torch.utils.data.Subset(dst_train, subset["indices"])
 
 
         if_weighted = False
@@ -977,14 +949,6 @@ def main():
 
             best_prec1 = checkpoint["best_acc1"] if "best_acc1" in checkpoint.keys() else 0.0
 
-            # Save the checkpont with only the susbet.
-            # if args.save_path != "" and args.resume == "":
-            #     save_checkpoint({"exp": exp,
-            #                      "subset": subset,
-            #                      "sel_args": selection_args},
-            #                     os.path.join(args.save_path, checkpoint_name + ("" if model == args.model else model
-            #                                  + "_") + "unknown.ckpt"), 0, 0.)
-
             args.test_interval= int(args.epochs/20)
             for epoch in range(start_epoch, args.epochs):
                 # train for one epoch
@@ -1045,7 +1009,7 @@ def main():
             checkpoint = {}
             sleep(2)
 
-        wandb.finish()
+        # wandb.finish()
 
 
 if __name__ == '__main__':

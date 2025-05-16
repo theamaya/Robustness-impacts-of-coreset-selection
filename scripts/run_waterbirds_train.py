@@ -10,19 +10,9 @@ fix_iterations= True
 
 num_exp=1
 
-# # methods= ['EL2N', 'Uncertainty', 'Forgetting']
-methods= ['unsupHerding','supProto', 'supHerding']
-methods= ['EL2N', 'SelfSup']
 fractions= [0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9, 0.95, 0.98]
-# fractions= [0.04, 0.05, 0.06, 0.07, 0.075, 0.08, 0.09, 0.11, 0.12, 0.13]
-policies= ['difficult', 'easy', 'median']
-policies= ['difficult-filtered']
-
-methods= ['EL2N', 'SelfSup']
-policies= ['median']
-
-methods= ['EL2N']
-policies= ['stratified-groupbal']
+methods= ['EL2N', 'Uncertainty', 'Forgetting', 'SelfSup',  'supProto']
+policies= ['difficult', 'difficult-filtered', 'easy', 'median', 'random', 'group-bal', 'stratified']
 
 for method in methods:
     for fraction in fractions:
@@ -31,8 +21,7 @@ for method in methods:
         else:
             train_epochs= epochs
         for policy in policies:
-            sp= '/n/fs/dk-diffusion/repos/DeepCore/checkpoints_SGD_classequal/'
-            score_path= f'/n/fs/dk-diffusion/repos/DeepCore/all_results_SGD/waterbirds_pretrained_imagenet/waterbirds_ResNet50_{method}_exp0_0.1_unknown.ckpt'
-            os.system(f"sbatch run_waterbirds_train.sh {fraction} {method} {sp} {score_path} {policy} {wd} {class_equal} {train_epochs}")
-            # time.sleep(1)   
-    # break    
+            sp= './checkpoints_SGD_classequal/'
+            score_path= f'./all_results_SGD/waterbirds_pretrained_imagenet/waterbirds_ResNet50_{method}_exp0_0.1_unknown.ckpt'
+            os.system(f"bash run_waterbirds_train.sh {fraction} {method} {sp} {score_path} {policy} {wd} {class_equal} {train_epochs}")
+ 

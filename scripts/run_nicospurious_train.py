@@ -8,17 +8,9 @@ epochs=100
 
 fix_iterations= True
 
-# methods= ['EL2N', 'Uncertainty', 'Forgetting']
-methods= ['unsupHerding','supProto', 'supHerding']
-# methods= ['EL2N']
 fractions= [0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9, 0.95, 0.98]
-policies= ['difficult', 'easy','median']
-# policies= ['difficult-groupbal', 'easy-groupbal']
-# policies=['groupbal-hard_majority', 'groupbal-easy_majority']
-# policies= ['random']
-
-methods= ['EL2N', 'SelfSup']
-policies= ['median']
+methods= ['EL2N', 'Uncertainty', 'Forgetting', 'SelfSup',  'supProto']
+policies= ['difficult', 'difficult-filtered', 'easy', 'median', 'random', 'group-bal', 'stratified']
 
 for method in methods:
     for fraction in fractions:
@@ -27,8 +19,8 @@ for method in methods:
         else:
             train_epochs= epochs
         for policy in policies:
-            sp= '/n/fs/dk-diffusion/repos/DeepCore/checkpoints_SGD_classequal/'
-            score_path= f'/n/fs/dk-diffusion/repos/DeepCore/all_results_SGD/nicospurious_pretrained_imagenet/Nico_95_spurious_ResNet50_{method}_exp0_0.1_unknown.ckpt'
-            os.system(f"sbatch run_nicospurious_train.sh {fraction} {method} {sp} {score_path} {policy} {wd} {class_equal} {train_epochs}")
+            sp= './checkpoints_SGD_classequal/'
+            score_path= f'./all_results_SGD/nicospurious_pretrained_imagenet/Nico_95_spurious_ResNet50_{method}_exp0_0.1_unknown.ckpt'
+            os.system(f"bash run_nicospurious_train.sh {fraction} {method} {sp} {score_path} {policy} {wd} {class_equal} {train_epochs}")
             # time.sleep(1)     
     # break

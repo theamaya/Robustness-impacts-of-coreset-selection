@@ -1,0 +1,31 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="deepcore",
+    version="0.1.0",
+    packages=find_packages(),
+    install_requires=[
+        "torch>=1.8.0",
+        "torchvision>=0.9.0",
+        "numpy>=1.20.0",
+        "scipy>=1.7.0",
+        "pandas>=1.3.0",
+        "scikit-learn>=0.24.0",
+        "tqdm>=4.60.0",
+        "matplotlib>=3.4.0",
+        "seaborn>=0.11.0",
+        "wandb>=0.10.0",
+        "Pillow>=8.0.0",
+        "opencv-python>=4.5.0",
+        "albumentations>=1.0.0",
+        "transformers>=4.0.0",
+        "nltk>=3.6.0",
+        "spacy>=3.0.0",
+        "pyyaml>=5.4.0",
+        "tensorboard>=2.5.0",
+        "joblib>=1.0.0",
+        "datasets>=2.15.0",
+        "huggingface-hub>=0.19.0",
+    ],
+    python_requires=">=3.8",
+) 

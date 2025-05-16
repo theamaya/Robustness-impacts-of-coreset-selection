@@ -58,6 +58,15 @@ datasets/
 *.json
 !deepcore/datasets/in_to_in9.json  # Keep this specific JSON file
 
+# CMNIST dataset
+data/cmnist/
+data/cmnist_hf/
+cmnist_for_hf/
+
+# Hugging Face dataset
+cmnist_for_hf/
+data/cmnist_hf/
+
 # Distribution / packaging
 .Python
 build/

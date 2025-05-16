@@ -1,0 +1,58 @@
+# Dataset paths configuration
+datasets:
+  Cmnist:
+    path: "data/cmnist"
+    description: "Colored MNIST with spurious correlations"
+    structure:
+      - test/
+      - 5pct/
+        - align/
+        - valid/
+        - conflict/
+
+  waterbirds:
+    path: "data/waterbird/waterbird_complete95_forest2water2"
+    description: "Bird species classification with background bias"
+    source: "https://github.com/kohpangwei/group_DRO/tree/master"
+
+  Urbancars_cooccur:
+    path: "data"
+    description: "Car classification in urban environments - co-occurrence variant"
+    source: "https://github.com/facebookresearch/Whac-A-Mole/tree/main"
+
+  Urbancars_bg:
+    path: "data"
+    description: "Car classification in urban environments - background variant"
+    source: "https://github.com/facebookresearch/Whac-A-Mole/tree/main"
+
+  Urbancars_both:
+    path: "data"
+    description: "Car classification in urban environments - combined variant"
+    source: "https://github.com/facebookresearch/Whac-A-Mole/tree/main"
+
+  Metashift:
+    path: "data"
+    description: "Dataset for studying distribution shifts"
+    source: "https://github.com/YyzHarry/SubpopBench/tree/main"
+
+  Civilcomments:
+    path: "data/civilcomments"
+    description: "Toxic comment classification dataset"
+    source: "https://github.com/izmailovpavel/spurious_feature_learning/tree/main"
+    requirements:
+      - "Wilds package"
+
+  Nico_95_spurious:
+    path: "data/NICO"
+    description: "Natural Image Classification with Context"
+    source: "https://github.com/yvsriram/FACTS"
+
+  MultiNLI:
+    path: "data/multinli"
+    description: "Natural Language Inference dataset"
+    source: "https://github.com/izmailovpavel/spurious_feature_learning/tree/main"
+
+  CelebAhair:
+    path: "data/celeba"
+    description: "CelebA dataset with hair color attributes"
+    source: "https://github.com/kohpangwei/group_DRO#celeba" 

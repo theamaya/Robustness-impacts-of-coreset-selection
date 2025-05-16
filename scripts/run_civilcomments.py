@@ -8,5 +8,5 @@ for j in range(5):
         se= 20
     else:
         se= 5
-    os.system(f"sbatch run_civilcomments.sh {se} {coreset_methods[j]} {uncertainty_methods[0]}")
+    os.system(f"bash run_civilcomments.sh {se} {coreset_methods[j]} {uncertainty_methods[0]}")
     time.sleep(1)
