@@ -52,36 +52,43 @@ mkdir -p data
 2. Download and prepare each dataset:
 
 #### 1. Cmnist
-The CMNIST dataset is hosted on Hugging Face. To download it:
+The CMNIST dataset can be downloaded from Google Drive:
 
-1. Install the required packages:
-```bash
-pip install -r requirements.txt
-```
+1. **Download from Google Drive**:
+   - Download the dataset from [CMNIST Google Drive Link](https://drive.google.com/file/d/11E2l_aifV4C6RfA86K7TJBjjz63YM5db/view?usp=sharing)
+   - Extract the downloaded `cmnist.zip` file:
+   ```bash
+   unzip cmnist.zip -d data/
+   ```
+   - The dataset will be extracted to `data/cmnist/` with the following structure:
+   ```
+   data/cmnist/
+   ├── test/
+   │   ├── 0/
+   │   ├── 1/
+   │   └── ... (classes 2-9)
+   └── 5pct/
+       ├── align/
+       │   ├── 0/
+       │   └── 1/
+       ├── valid/
+       │   ├── 0/
+       │   └── 1/
+       └── conflict/
+           ├── 0/
+           └── 1/
+   ```
 
-2. Download the dataset:
-```bash
-python scripts/download_cmnist.py
-```
+2. **Using the Download Script**:
+   ```bash
+   # Install the required packages
+   pip install -r requirements.txt
+   
+   # Download the dataset
+   python scripts/download_cmnist.py
+   ```
 
-The dataset will be downloaded to `data/cmnist/` with the following structure:
-```
-data/cmnist/
-├── test/
-│   ├── 0/
-│   ├── 1/
-│   └── ... (classes 2-9)
-└── 5pct/
-    ├── align/
-    │   ├── 0/
-    │   └── 1/
-    ├── valid/
-    │   ├── 0/
-    │   └── 1/
-    └── conflict/
-        ├── 0/
-        └── 1/
-```
+Both methods will result in the same dataset structure. Choose whichever method is more convenient for you.
 
 #### 2. waterbirds
 Follow - https://github.com/kohpangwei/group_DRO/tree/master to generate the waterbirds dataset
