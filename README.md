@@ -173,7 +173,7 @@ The results will be saved in the `results` directory with appropriate naming con
 
 ## Acknowledgements
 
-This codebase is based on [DeepCore](https://github.com/PatrickZH/DeepCore), a comprehensive library for coreset selection in deep learning. We extend their work to study the robustness impacts of coreset selection methods on various datasets with spurious correlations and distribution shifts.
+This codebase is based on [DeepCore](https://github.com/PatrickZH/DeepCore), a comprehensive library for coreset selection in deep learning.
 
 
 
