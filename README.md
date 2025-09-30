@@ -1,7 +1,6 @@
 # Robustness Impacts of Coreset Selection
 
-This repository contains code for studying the robustness impacts of coreset selection methods on various datasets.
-
+This repository contains code for replicating the results and analysis of our paper : [The Impact of Coreset Selection on Spurious Correlations and Group Robustness](https://arxiv.org/abs/2507.11690) published at Neurips 2025
 ## Environment Setup
 
 1. Create a conda environment:
